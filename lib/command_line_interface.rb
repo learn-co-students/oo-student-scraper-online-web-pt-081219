@@ -13,12 +13,16 @@ class CommandLineInterface
   end
 
   def make_students
-    students_array = Scraper.scrape_index_page(BASE_PATH + 'index.html')
+    students_array = Scraper.scrape_index_page(BASE_PATH + "index.html")
+    
     Student.create_from_collection(students_array)
+ 
   end
 
   def add_attributes_to_students
     Student.all.each do |student|
+     
+     
       attributes = Scraper.scrape_profile_page(BASE_PATH + student.profile_url)
       student.add_student_attributes(attributes)
     end
@@ -33,7 +37,7 @@ class CommandLineInterface
       puts "  twitter:".colorize(:light_blue) + " #{student.twitter}"
       puts "  linkedin:".colorize(:light_blue) + " #{student.linkedin}"
       puts "  github:".colorize(:light_blue) + " #{student.github}"
-      puts "  blog:".colorize(:light_blue) + " #{student.blog}"
+      puts "  blog:".colorize(:light_blue) + " #{student.blog}" if student.blog
       puts "----------------------".colorize(:green)
     end
   end
