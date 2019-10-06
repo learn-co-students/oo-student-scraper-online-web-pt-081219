@@ -43,6 +43,18 @@ describe "Student" do
     end
   end
 
+  # describe ".student_url" do
+  #   it "can find the URL for a given student id" do
+  #     Student.class_variable_set(:@@all, [])
+
+  #     students = Scraper.scrape_index_page("https://learn-co-curriculum.github.io/student-scraper-test-page/index.html")
+  #     student_id = student_index_array.first
+
+  #     url = Student.student_url(student_id, students)
+  #     expect(url).to eq("https://learn-co-curriculum.github.io/student-scraper-test-page/students/ryan-johnson.html")
+  #   end
+  # end
+
   describe "#add_student_attributes" do 
     it "uses the Scraper class to get a hash of a given students attributes and uses that hash to set additional attributes for that student." do 
       student.add_student_attributes(student_hash) 
